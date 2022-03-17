@@ -1,19 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:6-alphine' 
+            args '-p 3000:3000' 
+        }
+    }
     stages {
-        stage("build") {
+        stage('Build') { 
             steps {
-               echo building the application
-            }
-        }
-        stage("test"){
-            steps{
-                echo testing
-            }
-        }
-         stage("deploy"){
-            steps{
-                echo deploying the appliction
+                sh 'npm install' 
             }
         }
     }
