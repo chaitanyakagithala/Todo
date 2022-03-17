@@ -1,9 +1,19 @@
 pipeline {
-    agent {
+    agent any
     stages {
-        stage('Build') { 
+        stage("build") {
             steps {
-                echo 'building'
+               echo 'building the application'
+            }
+        }
+        stage("test"){
+            steps{
+                echo 'testing'
+            }
+        }
+         stage("deploy"){
+            steps{
+                echo 'deploying the appliction'
             }
         }
     }
