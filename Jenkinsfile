@@ -1,20 +1,14 @@
 pipeline {
     agent any
+
     stages {
-        stage("build") {
+        stage('Build') {
             steps {
-               echo building the application
-            }
-        }
-        stage("test"){
-            steps{
-                echo testing
-            }
-        }
-         stage("deploy"){
-            steps{
-                echo deploying the appliction
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                    sh 'npm config ls'
+                }
             }
         }
     }
+}
 }
